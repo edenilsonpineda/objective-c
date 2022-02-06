@@ -28,3 +28,8 @@
 
 -(double) bmi; //Method
 @end
+
+// New Interface
+@interface PrimitiveTypes : NSObject
+- (void) example;
+@end

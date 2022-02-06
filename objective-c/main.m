@@ -25,6 +25,35 @@
 }
 @end
 
+// New Interface implementation
+@implementation PrimitiveTypes
+- (void) example
+{
+    // Primitive types
+    NSNumber *anInt = @2147483647;
+    NSNumber *aUInt = @2147483647U;
+    
+    double x = 24.0;
+    NSNumber *resultExp = @(x * .15);
+    NSLog(@"Result: %1.f",[resultExp doubleValue]);
+    
+    // pointer comparison (false)
+    if(anInt == aUInt){
+        NSLog(@"They are the same object");
+    }
+    
+    // value comparison (succceds)
+    if([anInt isEqualToNumber: aUInt]){
+        NSLog(@"They are the same value");
+    }
+    
+    // Mutable Strings
+    NSMutableString *mutableStr = [NSMutableString stringWithString: @"Mutable string text"];
+    // [mutableStr setString: @"Modified String"];
+    NSLog(@"%@", mutableStr);
+}
+
+@end
 
 int main(int argc, const char * argv[]) {
     
@@ -45,28 +74,8 @@ int main(int argc, const char * argv[]) {
         NSLog(@"BMI of Person is: %f", result);
         
         
-        // Primitive types
-        NSNumber *anInt = @2147483647;
-        NSNumber *aUInt = @2147483647U;
-        
-        double x = 24.0;
-        NSNumber *resultExp = @(x * .15);
-        NSLog(@"%2.f", [resultExp doubleValue]);
-        
-        // pointer comparison (false)
-        if(anInt == aUInt){
-            NSLog(@"They are the same object");
-        }
-        
-        // value comparison (succceds)
-        if([anInt isEqualToNumber: aUInt]){
-            NSLog(@"They are the same value");
-        }
-        
-        // Mutable Strings
-        NSMutableString *mutableStr = [NSMutableString stringWithString: @"Mutable string text"];
-        // [mutableStr setString: @"Modified String"];
-        NSLog(@"%@", mutableStr);
+        PrimitiveTypes *primObject = [[PrimitiveTypes alloc] init];
+        [primObject example];
     }
     
     return 0;
